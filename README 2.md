@@ -1,6 +1,6 @@
-# 🛒 AxiomCart — Multi-Agent Voice-Enabled Shopping Assistant
+# 🛒 RatailTherapy — Multi-Agent Voice-Enabled Shopping Assistant
 
-AxiomCart is a **multi-agent AI system** built with [LangGraph](https://langchain-ai.github.io/langgraph/) that powers an e-commerce customer assistant. It combines product discovery (via RAG semantic search), sales support (order tracking, escalation), and voice I/O — all orchestrated through a graph of specialised agents that can run in parallel, ask follow-up questions mid-conversation, and synthesize multi-source answers into a single coherent reply.
+RetailTherapy is a **multi-agent AI system** built with [LangGraph](https://langchain-ai.github.io/langgraph/) that powers an e-commerce customer assistant. It combines product discovery (via RAG semantic search), sales support (order tracking, escalation), and voice I/O — all orchestrated through a graph of specialised agents that can run in parallel, ask follow-up questions mid-conversation, and synthesize multi-source answers into a single coherent reply.
 
 ---
 
@@ -8,11 +8,11 @@ AxiomCart is a **multi-agent AI system** built with [LangGraph](https://langchai
 
 ### The Problem
 
-E-commerce support queries are diverse. A customer might ask _"Do you have wireless headphones under ₹5,000?"_ (product search), _"Where's my order ORD102?"_ (support lookup), or even both at once: _"I ordered some headphones last week and they haven't arrived — also, do you have any Sony alternatives?"_. A single monolithic chatbot struggles to handle all of these well.
+E-commerce support queries are diverse. A customer might ask _"Do you have wireless headphones under $50?"_ (product search), _"Where's my order ORD102?"_ (support lookup), or even both at once: _"I ordered some headphones last week and they haven't arrived — also, do you have any Sony alternatives?"_. A single monolithic chatbot struggles to handle all of these well.
 
 ### The Solution — A Multi-Agent Architecture
 
-AxiomCart splits the work across **four cooperating nodes** inside a LangGraph `StateGraph`:
+RetailTherapy splits the work across **four cooperating nodes** inside a LangGraph `StateGraph`:
 
 ```
 START → orchestrator ─┬─ product_agent ──→ synthesizer → END
@@ -20,7 +20,7 @@ START → orchestrator ─┬─ product_agent ──→ synthesizer → END
 ```
 
 <p align="center">
-  <img src="architecture-diagram.svg" alt="AxiomCart Architecture Diagram" width="100%" />
+  <img src="architecture-diagram.svg" alt="Retailtherapy Architecture Diagram" width="100%" />
 </p>
 
 1. **Orchestrator** — An LLM-powered classifier that reads the customer's message and decides which specialist(s) should handle it. It can dispatch to one agent or both in parallel.
@@ -51,7 +51,7 @@ START → orchestrator ─┬─ product_agent ──→ synthesizer → END
 src/
 ├── main.py        # CLI entry point — text REPL, voice loop, or single query
 ├── config.py      # Logger, API keys, OpenAI/LangChain client setup
-├── state.py       # LangGraph state definitions (AxiomCartState, WorkerInput, etc.)
+├── state.py       # LangGraph state definitions (RetailTherapyCartState, WorkerInput, etc.)
 ├── graph.py       # Builds & compiles the StateGraph with MemorySaver checkpointer
 ├── nodes.py       # All four graph nodes + agent subgraphs (model ⇄ tools loops)
 ├── tools.py       # Tool implementations: catalog search, order lookup, escalation
@@ -193,7 +193,7 @@ uv run python -m src.main
 ```
 
 ```
-🛒  AxiomCart Assistant  (type 'quit' to exit)
+🛒  RetailTherapy Assistant  (type 'quit' to exit)
 
 You: Hi! Do you have any wireless headphones?
 Assistant: Hello! Let me search our catalog for you...
@@ -226,8 +226,8 @@ Requires a working microphone. The assistant speaks a welcome greeting, listens 
 ```
 You: What phones do you have?
 Assistant: We have two great options:
-  1. iPhone 15 Pro Max (₹1,59,900) — A17 Pro chip, titanium, 48MP camera
-  2. Samsung Galaxy S24 Ultra (₹1,34,999) — 200MP camera, Galaxy AI, S Pen
+  1. iPhone 15 Pro Max ($1600) — A17 Pro chip, titanium, 48MP camera
+  2. Samsung Galaxy S24 Ultra ($1800) — 200MP camera, Galaxy AI, S Pen
 ```
 
 ### Order Tracking with HITL
@@ -249,8 +249,8 @@ You: My order ORD102 is late. Also, show me alternatives to what I ordered.
 Assistant: I'm sorry about the delay on your ORD102 (Bose QC45). It's
 held up due to weather — new ETA is Feb 15. In the meantime, here are
 some alternatives:
-  • Sony WH-1000XM5 (₹12,999) — industry-leading ANC, 30-hour battery
-  • boAt Airdopes 141 (₹1,299) — budget-friendly with 42-hour playback
+  • Sony WH-1000XM5 ($250) — industry-leading ANC, 30-hour battery
+  • boAt Airdopes 141 ($100) — budget-friendly with 42-hour playback
 ```
 
 Both agents ran in parallel; the synthesizer merged their outputs.
