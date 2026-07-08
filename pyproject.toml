@@ -1,7 +1,7 @@
 [project]
 name = "axiomcart-voice-agent"
 version = "0.1.0"
-description = "Multi-Agent Voice System for AxiomCart E-Commerce"
+description = "Multi-Agent Voice System for RetailTherapy E-Commerce"
 requires-python = ">=3.11"
 dependencies = [
     # Core AI
