@@ -1,4 +1,4 @@
-# 🛒 RatailTherapy — Multi-Agent Voice-Enabled Shopping Assistant
+# 🛒 RetailTherapy — Multi-Agent Voice-Enabled Shopping Assistant
 
 RetailTherapy is a **multi-agent AI system** built with [LangGraph](https://langchain-ai.github.io/langgraph/) that powers an e-commerce customer assistant. It combines product discovery (via RAG semantic search), sales support (order tracking, escalation), and voice I/O — all orchestrated through a graph of specialised agents that can run in parallel, ask follow-up questions mid-conversation, and synthesize multi-source answers into a single coherent reply.
 
