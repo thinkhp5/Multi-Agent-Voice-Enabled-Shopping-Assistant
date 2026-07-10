@@ -1,5 +1,5 @@
 """
-AxiomCart Multi-Agent Voice System — main entry point.
+RetailTherapy Multi-Agent Voice System — main entry point.
 
 Usage:
     uv run python -m src.main                # interactive text mode (default)
