@@ -103,7 +103,7 @@ class AxiomCartAssistant:
             logger.error("Voice components not initialised")
             return
 
-        welcome = "Hello! I'm your AxiomCart assistant. How can I help you today?"
+        welcome = "Hello! I'm your RetailTherapy assistant. How can I help you today?"
         self.speaker.speak(welcome)
 
         for turn in range(1, max_turns + 1):
@@ -124,7 +124,7 @@ class AxiomCartAssistant:
 # ── CLI ──────────────────────────────────────────────────────
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="AxiomCart Multi-Agent Voice System")
+    parser = argparse.ArgumentParser(description="RetailTherapy Multi-Agent Voice System")
     parser.add_argument("--voice", action="store_true", help="Use microphone input + TTS output")
     parser.add_argument("--query", type=str, help="Run a single text query and exit")
     args = parser.parse_args()
