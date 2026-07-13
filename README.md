@@ -164,7 +164,7 @@ pip install -r requirements.txt
 |---|---|
 | `langgraph` | Graph orchestration, checkpointing, HITL interrupts |
 | `langchain-core` | Message types, tool decorator |
-| `langchain-openai` | ChatOpenAI LLM + OpenAI Embeddings |
+| `langchain-openai` | AWS LLM + AWS Native Embeddings |
 | `openai` | Raw client for TTS / Whisper (voice mode) |
 | `python-dotenv` | `.env` file loading |
 | `pydantic` | Structured output schemas |
@@ -237,7 +237,7 @@ You: Where's my order?
 🔄 Agent asks: Could you please provide your order ID or email?
 You: ORD101
 Assistant: Your order ORD101 for the Air Jordan 1 Retro High OG is shipped!
-  Estimated delivery: Feb 13, 2026.
+  Estimated delivery: Aug 10, 2026.
 ```
 
 The graph literally **pauses** at the `interrupt()` call inside the support subgraph, prompts you for the missing info, then **resumes** from exactly where it left off.
