@@ -329,7 +329,7 @@ When the support agent's LLM responds without making any tool calls and no tools
 | `gpt-4o` | Orchestrator classification, agent reasoning, response synthesis |
 | `text-embedding-3-small` | Product catalog vector embeddings for RAG |
 | `whisper-1` | Voice transcription (voice mode only) |
-| `tts-1` | Text-to-speech output (voice mode only) |
+| Transcribe `tts-1` | Text-to-speech output (voice mode only) |
 
 ---
 
