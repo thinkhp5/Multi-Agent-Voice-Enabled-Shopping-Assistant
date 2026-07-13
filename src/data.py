@@ -157,7 +157,7 @@ ESCALATION_QUEUE: list[dict] = []
 SUPPORT_POLICIES = """
 SHIPPING OPTIONS:
 - Rocket (Same-day): $10, available before 1 PM in metro cities
-- Glide (3-4 days): $5express delivery
+- Glide (3-4 days): $5, express delivery
 - Cruise (7-8 days): Free on orders over $50
 
 ESCALATION CRITERIA:
