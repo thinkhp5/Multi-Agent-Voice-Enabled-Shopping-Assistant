@@ -40,7 +40,7 @@ START → orchestrator ─┬─ product_agent ──→ synthesizer → END
 | **Order tracking** | Orders are looked up by ID (e.g. `ORD101`) or customer email from the order database. |
 | **Conversation memory** | A `MemorySaver` checkpointer persists state across turns, so multi-turn conversations "just work". |
 | **Human escalation** | Creates a support ticket with priority levels and (optionally) sends an email notification via Resend. |
-| **Voice I/O** | Microphone input + OpenAI TTS output for a fully spoken conversational experience. |
+| **Voice I/O** | Microphone input + Transcribe TTS output for a fully spoken conversational experience. |
 | **Response synthesis** | When both agents contribute, an LLM merges the results into a single, natural reply. |
 
 ---
@@ -165,7 +165,7 @@ pip install -r requirements.txt
 | `langgraph` | Graph orchestration, checkpointing, HITL interrupts |
 | `langchain-core` | Message types, tool decorator |
 | `langchain-openai` | AWS LLM + AWS Native Embeddings |
-| `openai` | Raw client for TTS / Whisper (voice mode) |
+| `aws` | Raw client for TTS / transcribe (voice mode) |
 | `python-dotenv` | `.env` file loading |
 | `pydantic` | Structured output schemas |
 
@@ -320,7 +320,7 @@ When the support agent's LLM responds without making any tool calls and no tools
 
 | Variable | Required | Description |
 |---|---|---|
-| `OPENAI_API_KEY` | Yes | OpenAI API key for GPT-4o, embeddings, TTS, and Whisper |
+| `OPENAI_API_KEY` | Yes | OpenAI API key for GPT-4o, embeddings, TTS, and Polly |
 
 ### Models Used
 
@@ -328,7 +328,7 @@ When the support agent's LLM responds without making any tool calls and no tools
 |---|---|
 | `gpt-4o` | Orchestrator classification, agent reasoning, response synthesis |
 | `text-embedding-3-small` | Product catalog vector embeddings for RAG |
-| `whisper-1` | Voice transcription (voice mode only) |
+| `Polly` | Voice transcription (voice mode only) |
 | Transcribe `tts-1` | Text-to-speech output (voice mode only) |
 
 ---
