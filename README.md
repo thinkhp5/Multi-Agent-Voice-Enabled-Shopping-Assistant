@@ -215,7 +215,7 @@ Runs one query, prints the answer, and exits. Useful for scripting or quick look
 uv run python -m src.main --voice
 ```
 
-Requires a working microphone. The assistant speaks a welcome greeting, listens for your question (5-second recording windows), processes it through the full agent pipeline, and speaks the answer back via OpenAI TTS. Say "goodbye" to end the session.
+Requires a working microphone. The assistant speaks a welcome greeting, listens for your question (5-second recording windows), processes it through the full agent pipeline, and speaks the answer back via Transcribe TTS. Say "goodbye" to end the session.
 
 ---
 
